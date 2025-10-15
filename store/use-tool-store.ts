@@ -17,7 +17,7 @@ export const useToolStore = create<ToolStore>()(
     (set) => ({
       favorites: [],
       searchQuery: "",
-      theme: "dark",
+      theme: "light",
       addFavorite: (slug) =>
         set((state) => ({
           favorites: [...state.favorites, slug],
