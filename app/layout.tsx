@@ -9,6 +9,7 @@ import { generateSEO } from "@/components/seo";
 import { generateHomeSEO } from "@/lib/seo-utils";
 import { AdBlockDetector } from "@/components/adblock-detector";
 import { getAdBlockSettings } from "@/lib/admin-actions";
+import GoogleAnalytics from "./analytics";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -61,6 +62,7 @@ export default async function RootLayout({
             enabled={adBlockSettings.enabled}
             message={adBlockSettings.message}
           />
+           <GoogleAnalytics />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

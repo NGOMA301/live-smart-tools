@@ -13,7 +13,7 @@ export function generateSEO({ title, description, keywords, canonical, ogImage, 
   const keywordsString = Array.isArray(keywords)
     ? keywords.join(", ")
     : keywords || "online tools, utilities, calculators, converters"
-  const defaultOgImage = "https://smart-tools.threezeroonellc.com/og-image.png"
+  const defaultOgImage = "https://smart-tools.threezeroonellc.com/og-image.jpg"
   const imageUrl = ogImage || defaultOgImage
 
   return {

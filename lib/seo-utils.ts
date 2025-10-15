@@ -150,7 +150,7 @@ return {
     "text utilities online"
   ],
   canonical: baseUrl,
-  ogImage: `${baseUrl}/og-image.png`,
+  ogImage: `${baseUrl}/og-image.jpg`,
   structuredData,
 }
 
