@@ -4,7 +4,6 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
-  // Basic Security Headers
   response.headers.set("X-Frame-Options", "DENY");
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-XSS-Protection", "1; mode=block");
@@ -14,10 +13,9 @@ export function middleware(request: NextRequest) {
     "camera=(), microphone=(), geolocation=(), interest-cohort=()"
   );
 
-  // --- FIXED & OPTIMIZED CONTENT SECURITY POLICY ---
   const csp = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval'
+    script-src 'self' blob: 'unsafe-inline' 'unsafe-eval'
       https://pagead2.googlesyndication.com
       https://www.googletagmanager.com
       https://www.google-analytics.com;
@@ -36,7 +34,9 @@ export function middleware(request: NextRequest) {
       https://googleads.g.doubleclick.net
       https://www.googletagmanager.com
       https://pagead2.googlesyndication.com;
-  `.replace(/\s{2,}/g, " ").trim();
+  `
+    .replace(/\s{2,}/g, " ")
+    .trim();
 
   response.headers.set("Content-Security-Policy", csp);
 
