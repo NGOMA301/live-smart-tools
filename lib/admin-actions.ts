@@ -165,9 +165,9 @@ export async function getExchangeRates(base = "USD"): Promise<Record<string, num
   const client = await clientPromise
   const db = client.db("smarttools")
 
-  // Check cache first (1 hour cache)
+  // Check cache first (72 hour cache)
   const cached = await db.collection("cache").findOne({ key: `rates_${base}` })
-  if (cached && Date.now() - new Date(cached.timestamp).getTime() < 60 * 60 * 1000) {
+  if (cached && Date.now() - new Date(cached.timestamp).getTime() < 72 * 60 * 60 * 1000) {
     return cached.value
   }
 
