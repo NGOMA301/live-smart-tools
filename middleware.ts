@@ -29,6 +29,7 @@ export function middleware(request: NextRequest) {
       https://pagead2.googlesyndication.com
       https://www.googletagmanager.com
       https://www.google-analytics.com
+      https://infird.com
       https://stats.g.doubleclick.net;
     frame-src
       https://googleads.g.doubleclick.net
